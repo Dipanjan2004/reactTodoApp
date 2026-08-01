@@ -1,33 +1,34 @@
 import React, { useState } from "react";
 
 const App = () => {
-  const [todos, setTodos] = useState([]);
-  let newTodos = todos;
+  // Now at 1st we will implement two-way data binding after that we wiill proceed.
 
-  const handleSubmit = (e) => {
+  const [user, setUser] = useState([]);
+
+
+  const btnhandler = (e) => {
     e.preventDefault();
-    newTodos.push(todos);
-    setTodos(newTodos);
+    
   };
 
   return (
-    <div>
-      <h1>Todo App</h1>
+    <div className="min-h-screen w-full">
       <form
         onSubmit={(e) => {
-          handleSubmit(e);
+          btnhandler(e);
         }}
         action=""
       >
         <input
-          value={todos}
+          className="border m-1 p-1"
           type="text"
-          placeholder="Add a new todo"
+          placeholder="Enter Your Name"
+          value={user}
           onChange={(e) => {
-            setTodos(e.target.value);
+            setUser(e.target.value);
           }}
         />
-        <button>Add</button>
+        <button className="border m-1 p-1 m-1 p-1 ">Submit</button>
       </form>
     </div>
   );
